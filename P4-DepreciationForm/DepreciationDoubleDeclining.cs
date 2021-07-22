@@ -33,7 +33,7 @@ namespace P4_DepreciationForm
         //2  ×  Straight-line depreciation rate  ×  Book value at the beginning of the year
         //A variation on this method is the 150% declining balance method, which substitutes 1.5 for the 2.0 figure used in the calculation. The 150% method does not result in as rapid a rate of depreciation at the double declining method.
 
-        //example
+        //examplee
 
 
     }
