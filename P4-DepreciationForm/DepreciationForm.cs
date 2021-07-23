@@ -13,7 +13,7 @@ namespace P4_DepreciationForm
     public partial class DepreciationForm : Form
     {
 
-        private List<DepreciationStraightLine> depreciationsList = new List<DepreciationStraightLine>();
+        private List<Depreciation> depreciationsList = new List<Depreciation>();
 
         public DepreciationForm()
         {
@@ -49,7 +49,7 @@ namespace P4_DepreciationForm
                 //Adds DepreciationDoubleDeclining value polymorphically
                 DepreciationDoubleDeclining depreciationDoubleDeclining = new DepreciationDoubleDeclining();
 
-                depreciationsList.Add(depreciationStraightLine);
+                depreciationsList.Add(depreciationDoubleDeclining);
 
                 //Refreshes the list box
                 listBoxInventory.DataSource = null;

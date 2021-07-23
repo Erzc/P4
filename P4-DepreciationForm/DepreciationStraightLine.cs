@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace P4_DepreciationForm
 {
-    public class DepreciationStraightLine
+    public class DepreciationStraightLine : Depreciation
     {
         //Declare variables
         private string title; //

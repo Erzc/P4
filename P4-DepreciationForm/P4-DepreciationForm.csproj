@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Depreciation.cs" />
     <Compile Include="DepreciationDoubleDeclining.cs" />
     <Compile Include="DepreciationStraightLine.cs" />
     <Compile Include="DepreciationForm.cs">

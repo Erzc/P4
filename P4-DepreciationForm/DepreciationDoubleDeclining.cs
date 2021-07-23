@@ -42,11 +42,7 @@ namespace P4_DepreciationForm
         //ToString that returns a nicely formatted string, but add the fact that this item uses double declining depreciation.
         public override string ToString()
         {
-            return "Title: " + Title +
-                " Start Value: " + StartValue +
-                " End Value: " + EndValue +
-                " Lifetime: " + NumYearsLifetime +
-                ". Uses double declining depreciation." + base.ToString();
+            return base.ToString() + ". Uses double declining depreciation.";
         }
     }
 }
