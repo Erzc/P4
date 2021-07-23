@@ -140,6 +140,7 @@ namespace P4_DepreciationForm
             this.buttonRemove.TabIndex = 16;
             this.buttonRemove.Text = "Remove Selected Item From Inventory";
             this.buttonRemove.UseVisualStyleBackColor = true;
+            this.buttonRemove.Click += new System.EventHandler(this.buttonRemove_Click);
             // 
             // buttonAdd
             // 

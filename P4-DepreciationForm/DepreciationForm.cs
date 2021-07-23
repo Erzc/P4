@@ -41,12 +41,11 @@ namespace P4_DepreciationForm
                 //Refreshes the list box, points it to null then re-assigns it to cause the list box to refresh
                 listBoxInventory.DataSource = null;
                 listBoxInventory.DataSource = depreciationsList; //CHANGE THIS FOR TOSTRING STUFF???
-
             }
   
             else if (radioButtonDouble.Checked)
             {
-                //Adds DepreciationDoubleDeclining value polymorphically
+                //Adds DepreciationDoubleDeclining polymorphically
                 DepreciationDoubleDeclining depreciationDoubleDeclining = new DepreciationDoubleDeclining();
 
                 depreciationsList.Add(depreciationDoubleDeclining);
@@ -54,7 +53,14 @@ namespace P4_DepreciationForm
                 //Refreshes the list box
                 listBoxInventory.DataSource = null;
                 listBoxInventory.DataSource = depreciationsList;
-            
+            }
+        }
+
+        private void buttonRemove_Click(object sender, EventArgs e)
+        {
+            if (listBoxInventory.Items.Count > 0)
+            {
+                listBoxInventory.Items.RemoveAt(listBoxInventory.SelectedIndex);
             }
         }
     }
