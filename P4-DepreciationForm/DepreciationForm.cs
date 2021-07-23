@@ -56,12 +56,28 @@ namespace P4_DepreciationForm
             }
         }
 
+        //Removes selected item in listBoxInventory after button click
         private void buttonRemove_Click(object sender, EventArgs e)
         {
-            if (listBoxInventory.Items.Count > 0)
+            if (listBoxInventory.Items.Count > 0 && listBoxInventory.SelectedValue != null)
             {
-                listBoxInventory.Items.RemoveAt(listBoxInventory.SelectedIndex);
+                //implicit type var
+                var inventoryItems = (List<Depreciation>)listBoxInventory.DataSource;
+
+                var selectedInventoryItem = (Depreciation)listBoxInventory.SelectedValue;
+
+                listBoxInventory.DataSource = null;
+
+                listBoxInventory.Items.Clear();
+                inventoryItems.Remove(selectedInventoryItem);
+
+                listBoxInventory.DataSource = inventoryItems;
             }
+        }
+
+        private void buttonCalculate_Click(object sender, EventArgs e)
+        {
+            //EndValue
         }
     }
 }

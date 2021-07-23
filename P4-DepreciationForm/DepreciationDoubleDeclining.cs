@@ -27,9 +27,11 @@ namespace P4_DepreciationForm
 
                 return EndValue;
             }
-
-            return 0;
+            return EndValue;
         }
+
+        //Read-only auto-property - decimal for the total depreciation value
+        public decimal EndValue { get; private set; }
 
         //ToString that returns a nicely formatted string, but add the fact that this item uses double declining depreciation.
         public override string ToString()

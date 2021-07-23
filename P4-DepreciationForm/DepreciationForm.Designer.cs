@@ -53,6 +53,7 @@ namespace P4_DepreciationForm
             this.listBoxInventory = new System.Windows.Forms.ListBox();
             this.tabPageSummary = new System.Windows.Forms.TabPage();
             this.buttonCalculate = new System.Windows.Forms.Button();
+            this.textBoxCalcInvVal = new System.Windows.Forms.TextBox();
             this.tabControl1.SuspendLayout();
             this.tabPageHow.SuspendLayout();
             this.tabPageInventory.SuspendLayout();
@@ -281,6 +282,7 @@ namespace P4_DepreciationForm
             // 
             // tabPageSummary
             // 
+            this.tabPageSummary.Controls.Add(this.textBoxCalcInvVal);
             this.tabPageSummary.Controls.Add(this.buttonCalculate);
             this.tabPageSummary.Location = new System.Drawing.Point(4, 22);
             this.tabPageSummary.Name = "tabPageSummary";
@@ -298,6 +300,16 @@ namespace P4_DepreciationForm
             this.buttonCalculate.TabIndex = 0;
             this.buttonCalculate.Text = "Calculate Inventory Value";
             this.buttonCalculate.UseVisualStyleBackColor = true;
+            this.buttonCalculate.Click += new System.EventHandler(this.buttonCalculate_Click);
+            // 
+            // textBoxCalcInvVal
+            // 
+            this.textBoxCalcInvVal.Location = new System.Drawing.Point(165, 208);
+            this.textBoxCalcInvVal.Multiline = true;
+            this.textBoxCalcInvVal.Name = "textBoxCalcInvVal";
+            this.textBoxCalcInvVal.ReadOnly = true;
+            this.textBoxCalcInvVal.Size = new System.Drawing.Size(373, 52);
+            this.textBoxCalcInvVal.TabIndex = 1;
             // 
             // DepreciationForm
             // 
@@ -313,6 +325,7 @@ namespace P4_DepreciationForm
             this.tabPageInventory.ResumeLayout(false);
             this.tabPageInventory.PerformLayout();
             this.tabPageSummary.ResumeLayout(false);
+            this.tabPageSummary.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -343,6 +356,7 @@ namespace P4_DepreciationForm
         private System.Windows.Forms.Button buttonAdd;
         private System.Windows.Forms.Button buttonRemove;
         private System.Windows.Forms.Button buttonCalculate;
+        private System.Windows.Forms.TextBox textBoxCalcInvVal;
     }
 }
 
