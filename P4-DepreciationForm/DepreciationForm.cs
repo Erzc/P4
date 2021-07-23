@@ -22,8 +22,8 @@ namespace P4_DepreciationForm
 
         private void buttonAdd_Click(object sender, EventArgs e)
         {
-            //if (radioButtonStraight.Checked)
-            //{
+            if (radioButtonStraight.Checked)
+            {
 
                 DepreciationStraightLine depreciationStraightLine = new DepreciationStraightLine();
 
@@ -42,9 +42,9 @@ namespace P4_DepreciationForm
                 listBoxInventory.DataSource = null;
                 listBoxInventory.DataSource = depreciationsList; //CHANGE THIS FOR TOSTRING STUFF???
 
-            //}
+            }
   
-            /*else if (radioButtonDouble.Checked)
+            else if (radioButtonDouble.Checked)
             {
                 //Adds DepreciationDoubleDeclining value polymorphically
                 DepreciationDoubleDeclining depreciationDoubleDeclining = new DepreciationDoubleDeclining();
@@ -55,7 +55,7 @@ namespace P4_DepreciationForm
                 listBoxInventory.DataSource = null;
                 listBoxInventory.DataSource = depreciationsList;
             
-            } */
+            }
         }
     }
 }

@@ -46,7 +46,7 @@ namespace P4_DepreciationForm
                 " Start Value: " + StartValue +
                 " End Value: " + EndValue +
                 " Lifetime: " + NumYearsLifetime +
-                ". Uses double declining depreciation.";
+                ". Uses double declining depreciation." + base.ToString();
         }
     }
 }
