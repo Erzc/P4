@@ -1,7 +1,7 @@
 ﻿
 namespace P4_DepreciationForm
 {
-    partial class Form1
+    partial class DepreciationForm
     {
         /// <summary>
         /// Required designer variable.

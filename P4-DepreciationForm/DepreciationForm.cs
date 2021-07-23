@@ -10,11 +10,13 @@ using System.Windows.Forms;
 
 namespace P4_DepreciationForm
 {
-    public partial class Form1 : Form
+    public partial class DepreciationForm : Form
     {
-        public Form1()
+        public DepreciationForm()
         {
             InitializeComponent();
         }
     }
+
+
 }
