@@ -15,6 +15,8 @@ namespace P4_DepreciationForm
 
         private List<Depreciation> depreciationsList = new List<Depreciation>();
 
+        private List<decimal> depreciationCalcs = new List<decimal>();
+
         public DepreciationForm()
         {
             InitializeComponent();
@@ -37,6 +39,8 @@ namespace P4_DepreciationForm
                 //A depreciations list of Depretiation class objects
                 depreciationsList.Add(depreciationStraightLine);
 
+                depreciationCalcs.Add(depreciationStraightLine.AnnualStraightLineDepreciation);
+
                 //Uses DataSource property to identify a collection object that the LIstBox will display
                 //Refreshes the list box, points it to null then re-assigns it to cause the list box to refresh
                 listBoxInventory.DataSource = null;
@@ -49,6 +53,8 @@ namespace P4_DepreciationForm
                 DepreciationDoubleDeclining depreciationDoubleDeclining = new DepreciationDoubleDeclining();
 
                 depreciationsList.Add(depreciationDoubleDeclining);
+
+                depreciationCalcs.Add(depreciationDoubleDeclining.AnnualStraightLineDepreciation);
 
                 //Refreshes the list box
                 listBoxInventory.DataSource = null;
@@ -63,21 +69,30 @@ namespace P4_DepreciationForm
             {
                 //implicit type var
                 var inventoryItems = (List<Depreciation>)listBoxInventory.DataSource;
-
                 var selectedInventoryItem = (Depreciation)listBoxInventory.SelectedValue;
 
                 listBoxInventory.DataSource = null;
-
                 listBoxInventory.Items.Clear();
                 inventoryItems.Remove(selectedInventoryItem);
-
                 listBoxInventory.DataSource = inventoryItems;
             }
         }
-
         private void buttonCalculate_Click(object sender, EventArgs e)
         {
-            //EndValue
+            //testingstuff //sets total calculations ~~~~~~~~~~~~~~~~
+            //decimal[] scoreIntArrays = depreciationCalcs.ToArray();
+
+            int scoreTotal = 0;
+                foreach (int score in depreciationCalcs)
+                {
+                    scoreTotal += score;
+                }
+
+            //Displays total in textBoxCalcInvVal
+            //textBoxCalcInvVal.Text = Convert.ToString(scoreTotal);
+
+            //.............just list
+            textBoxCalcInvVal.Text = String.Join(Environment.NewLine, depreciationCalcs);
         }
     }
 }

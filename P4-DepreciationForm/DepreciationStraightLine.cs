@@ -96,15 +96,18 @@ namespace P4_DepreciationForm
             }
         }
 
-        //Method calculates annual straight line depreciation
-        public virtual decimal Calc() //virtual???
-        {
-            return 332;
-            /*
-            decimal annualStraightLineDepreciation = (StartValue - EndValue) * (1 / NumYearsLifetime);
+        //Auto-property - decimal for the annual straight line depreciation
+        public decimal AnnualStraightLineDepreciation { get; set; }
 
-            return annualStraightLineDepreciation;
-            */
+        //Method calculates annual straight line depreciation
+        public virtual void Calc() //virtual???
+        {
+            //decimal NumYearsLifetimeDecimal = Convert.ToDecimal(NumYearsLifetime);
+            if (NumYearsLifetime != 0)
+            {
+                AnnualStraightLineDepreciation = (StartValue - EndValue) * (1.0M / NumYearsLifetime);
+            }
+                AnnualStraightLineDepreciation = 0;
         }
 
         //ToString that returns a formatted string
