@@ -14,7 +14,7 @@ namespace P4_DepreciationForm
         private DateTime dateTimeRemovedFromInventory;
         private decimal startValue;
         private decimal endValue;
-        private int numYearsLifetime;
+        public int numYearsLifetime;
 
         //Public gettable and settable properties. Set part calls calc method
 
@@ -87,11 +87,11 @@ namespace P4_DepreciationForm
         {
             get
             {
-                return this.numYearsLifetime;
+                return numYearsLifetime;
             }
             set
             {
-                this.numYearsLifetime = value;
+                numYearsLifetime = value;
                 Calc();
             }
         }
@@ -102,7 +102,7 @@ namespace P4_DepreciationForm
         //Virtual method calculates annual straight line depreciation
         public virtual void Calc()
         {
-            //I sometimes get an error pop-up after "add form item" button click without this if-else statement?? -E
+            //If-else statement needed for when get numYearsLifeTime hasn't been called yet
             if (numYearsLifetime != 0.0M)
             {
                 AnnualDepreciation = (startValue - endValue) * (1.0M / numYearsLifetime);

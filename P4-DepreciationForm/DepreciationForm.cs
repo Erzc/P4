@@ -93,10 +93,8 @@ namespace P4_DepreciationForm
                     calcTotal += item;
                 }
 
-            //textBoxCalcInvVal.Text = "The total of all depreciation calculations is: " + Convert.ToString(calcTotal);
-
-            //.............just list
-            textBoxCalcInvVal.Text = String.Join(Environment.NewLine, depreciationCalcs);
+            //Prints final sum to final textbox
+            textBoxCalcInvVal.Text = "The total of all depreciation calculations is: " + Convert.ToString(calcTotal);
         }
     }
 }
