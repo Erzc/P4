@@ -20,7 +20,7 @@ namespace P4_DepreciationForm
 
                 decimal doubleDepreciationRate = ((1.0M / numYearsLifeTimeDecimal * 2.0M) * 100.0M);
 
-                AnnualDepreciation = StartValue * (doubleDepreciationRate / 100.0M);\
+                AnnualDepreciation = StartValue * (doubleDepreciationRate / 100.0M);
             }
             else
             {
