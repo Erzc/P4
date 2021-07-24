@@ -97,19 +97,19 @@ namespace P4_DepreciationForm
         }
 
         //Auto-property - decimal for the annual straight line depreciation
-        public virtual decimal AnnualStraightLineDepreciation { get; set; }
+        public virtual decimal AnnualDepreciation { get; set; }
 
-        //Method calculates annual straight line depreciation
-        public virtual void Calc() //virtual???
+        //Virtual method calculates annual straight line depreciation
+        public virtual void Calc()
         {
-            //decimal NumYearsLifetimeDecimal = Convert.ToDecimal(NumYearsLifetime);
+            //I sometimes get an error pop-up after "add form item" button click without this if-else statement... -E
             if (numYearsLifetime != 0.0M)
             {
-                AnnualStraightLineDepreciation = (startValue - endValue) * (1.0M / numYearsLifetime);
+                AnnualDepreciation = (startValue - endValue) * (1.0M / numYearsLifetime);
             }
             else
             {
-                AnnualStraightLineDepreciation = 5; //test, doesn't work
+                AnnualDepreciation = 5;
             }
         }
 

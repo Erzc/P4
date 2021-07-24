@@ -12,9 +12,8 @@ namespace P4_DepreciationForm
 {
     public partial class DepreciationForm : Form
     {
-
+        //Initilizes list of Depreciation class objects and list of depreciation calculations
         private List<Depreciation> depreciationsList = new List<Depreciation>();
-
         private List<decimal> depreciationCalcs = new List<decimal>();
 
         public DepreciationForm()
@@ -22,13 +21,16 @@ namespace P4_DepreciationForm
             InitializeComponent();
         }
 
+        //
         private void buttonAdd_Click(object sender, EventArgs e)
         {
+            //If straight line or double declining radio button checked, new instance of respective class, adds to list, refreshes list box
             if (radioButtonStraight.Checked)
             {
-
+                //Instantiates a new instance of the DepreciationStraightLine class
                 DepreciationStraightLine depreciationStraightLine = new DepreciationStraightLine();
 
+                //Uses textbox/datetimepicker for the arguments needed in properties
                 depreciationStraightLine.Title = textBoxTitle.Text;
                 depreciationStraightLine.StartValue = Convert.ToDecimal(textBoxStartingValue.Text);
                 depreciationStraightLine.EndValue = Convert.ToDecimal(textBoxEndValue.Text);
@@ -36,11 +38,9 @@ namespace P4_DepreciationForm
                 depreciationStraightLine.DateTimeIn = dateTimePickerDateIn.Value;
                 depreciationStraightLine.DateTimeOut = dateTimePickerDateOut.Value;
 
-                //Adds to depreciations list of Depretiation class objects
+                //Adds new instance to class object list and decimal value to calculations list
                 depreciationsList.Add(depreciationStraightLine);
-
-                //Adds to 
-                depreciationCalcs.Add(depreciationStraightLine.AnnualStraightLineDepreciation);
+                depreciationCalcs.Add(depreciationStraightLine.AnnualDepreciation);
 
                 //Uses DataSource property to identify a collection object that the LIstBox will display
                 //Refreshes the list box, points it to null then re-assigns it to cause the list box to refresh
@@ -59,9 +59,9 @@ namespace P4_DepreciationForm
                 depreciationDoubleDeclining.DateTimeIn = dateTimePickerDateIn.Value;
                 depreciationDoubleDeclining.DateTimeOut = dateTimePickerDateOut.Value;
 
+                //Adds new instance to class object list and decimal value to calculations list
                 depreciationsList.Add(depreciationDoubleDeclining);
-
-                depreciationCalcs.Add(depreciationDoubleDeclining.AnnualStraightLineDepreciation);
+                depreciationCalcs.Add(depreciationDoubleDeclining.AnnualDepreciation);
 
                 //Refreshes the list box
                 listBoxInventory.DataSource = null;
@@ -69,7 +69,7 @@ namespace P4_DepreciationForm
             }
         }
 
-        //Removes selected item in listBoxInventory after button click
+        //Removes selected item in listBoxInventory after button click, doesn't remove list items yet -E
         private void buttonRemove_Click(object sender, EventArgs e)
         {
             if (listBoxInventory.Items.Count > 0 && listBoxInventory.SelectedValue != null)
@@ -84,11 +84,12 @@ namespace P4_DepreciationForm
                 listBoxInventory.DataSource = inventoryItems;
             }
         }
+
+        //On calculate button click, totals list of calculations to display below button
         private void buttonCalculate_Click(object sender, EventArgs e)
         {
-            //testingstuff //sets total calculations ~~~~~~~~~~~~~~~~
-            //decimal[] scoreIntArrays = depreciationCalcs.ToArray();
 
+            //Total of all depreciation calculations
             decimal calcTotal = 0;
                 foreach (decimal item in depreciationCalcs)
                 {
