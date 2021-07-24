@@ -45,7 +45,7 @@ namespace P4_DepreciationForm
                 //Uses DataSource property to identify a collection object that the LIstBox will display
                 //Refreshes the list box, points it to null then re-assigns it to cause the list box to refresh
                 listBoxInventory.DataSource = null;
-                listBoxInventory.DataSource = depreciationsList; //CHANGE THIS FOR TOSTRING STUFF???
+                listBoxInventory.DataSource = depreciationsList;
             }
   
             else if (radioButtonDouble.Checked)
@@ -59,11 +59,9 @@ namespace P4_DepreciationForm
                 depreciationDoubleDeclining.DateTimeIn = dateTimePickerDateIn.Value;
                 depreciationDoubleDeclining.DateTimeOut = dateTimePickerDateOut.Value;
 
-                //Adds new instance to class object list and decimal value to calculations list
                 depreciationsList.Add(depreciationDoubleDeclining);
                 depreciationCalcs.Add(depreciationDoubleDeclining.AnnualDepreciation);
 
-                //Refreshes the list box
                 listBoxInventory.DataSource = null;
                 listBoxInventory.DataSource = depreciationsList;
             }
@@ -88,7 +86,6 @@ namespace P4_DepreciationForm
         //On calculate button click, totals list of calculations to display below button
         private void buttonCalculate_Click(object sender, EventArgs e)
         {
-
             //Total of all depreciation calculations
             decimal calcTotal = 0;
                 foreach (decimal item in depreciationCalcs)

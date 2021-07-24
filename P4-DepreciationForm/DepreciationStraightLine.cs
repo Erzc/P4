@@ -102,7 +102,7 @@ namespace P4_DepreciationForm
         //Virtual method calculates annual straight line depreciation
         public virtual void Calc()
         {
-            //I sometimes get an error pop-up after "add form item" button click without this if-else statement... -E
+            //I sometimes get an error pop-up after "add form item" button click without this if-else statement?? -E
             if (numYearsLifetime != 0.0M)
             {
                 AnnualDepreciation = (startValue - endValue) * (1.0M / numYearsLifetime);

@@ -14,16 +14,17 @@ namespace P4_DepreciationForm
         //Overrides the Calc method to use the Double Declining Depreciation methodology
         public override void Calc()
         {
-            decimal numYearsLifeTimeDecimal = Convert.ToDecimal(NumYearsLifetime);
-            int count = 0;
-
-            //for (i = 0; )
-
-            while (count < NumYearsLifetime)
+            if (NumYearsLifetime != 0.0M)
             {
-                count = count + 1;
-                decimal depreciation = (EndValue * (2.0M / numYearsLifeTimeDecimal));
-                AnnualDepreciation -= depreciation;
+                decimal numYearsLifeTimeDecimal = Convert.ToDecimal(NumYearsLifetime);
+
+                decimal doubleDepreciationRate = ((1.0M / numYearsLifeTimeDecimal * 2.0M) * 100.0M);
+
+                AnnualDepreciation = StartValue * (doubleDepreciationRate / 100.0M);\
+            }
+            else
+            {
+                AnnualDepreciation = 2;
             }
         }
 
