@@ -36,9 +36,10 @@ namespace P4_DepreciationForm
                 depreciationStraightLine.DateTimeIn = dateTimePickerDateIn.Value;
                 depreciationStraightLine.DateTimeOut = dateTimePickerDateOut.Value;
 
-                //A depreciations list of Depretiation class objects
+                //Adds to depreciations list of Depretiation class objects
                 depreciationsList.Add(depreciationStraightLine);
 
+                //Adds to 
                 depreciationCalcs.Add(depreciationStraightLine.AnnualStraightLineDepreciation);
 
                 //Uses DataSource property to identify a collection object that the LIstBox will display
@@ -49,8 +50,14 @@ namespace P4_DepreciationForm
   
             else if (radioButtonDouble.Checked)
             {
-                //Adds DepreciationDoubleDeclining polymorphically
                 DepreciationDoubleDeclining depreciationDoubleDeclining = new DepreciationDoubleDeclining();
+
+                depreciationDoubleDeclining.Title = textBoxTitle.Text;
+                depreciationDoubleDeclining.StartValue = Convert.ToDecimal(textBoxStartingValue.Text);
+                depreciationDoubleDeclining.EndValue = Convert.ToDecimal(textBoxEndValue.Text);
+                depreciationDoubleDeclining.NumYearsLifetime = Convert.ToInt32(textBoxLifetime.Text);
+                depreciationDoubleDeclining.DateTimeIn = dateTimePickerDateIn.Value;
+                depreciationDoubleDeclining.DateTimeOut = dateTimePickerDateOut.Value;
 
                 depreciationsList.Add(depreciationDoubleDeclining);
 
@@ -82,14 +89,13 @@ namespace P4_DepreciationForm
             //testingstuff //sets total calculations ~~~~~~~~~~~~~~~~
             //decimal[] scoreIntArrays = depreciationCalcs.ToArray();
 
-            int scoreTotal = 0;
-                foreach (int score in depreciationCalcs)
+            decimal calcTotal = 0;
+                foreach (decimal item in depreciationCalcs)
                 {
-                    scoreTotal += score;
+                    calcTotal += item;
                 }
 
-            //Displays total in textBoxCalcInvVal
-            //textBoxCalcInvVal.Text = Convert.ToString(scoreTotal);
+            //textBoxCalcInvVal.Text = "The total of all depreciation calculations is: " + Convert.ToString(calcTotal);
 
             //.............just list
             textBoxCalcInvVal.Text = String.Join(Environment.NewLine, depreciationCalcs);

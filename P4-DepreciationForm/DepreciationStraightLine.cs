@@ -9,7 +9,7 @@ namespace P4_DepreciationForm
     public class DepreciationStraightLine : Depreciation
     {
         //Declare variables
-        private string title; //
+        private string title;
         private DateTime dateTimeAddedToInventory;
         private DateTime dateTimeRemovedFromInventory;
         private decimal startValue;
@@ -97,17 +97,20 @@ namespace P4_DepreciationForm
         }
 
         //Auto-property - decimal for the annual straight line depreciation
-        public decimal AnnualStraightLineDepreciation { get; set; }
+        public virtual decimal AnnualStraightLineDepreciation { get; set; }
 
         //Method calculates annual straight line depreciation
         public virtual void Calc() //virtual???
         {
             //decimal NumYearsLifetimeDecimal = Convert.ToDecimal(NumYearsLifetime);
-            if (NumYearsLifetime != 0)
+            if (numYearsLifetime != 0.0M)
             {
-                AnnualStraightLineDepreciation = (StartValue - EndValue) * (1.0M / NumYearsLifetime);
+                AnnualStraightLineDepreciation = (startValue - endValue) * (1.0M / numYearsLifetime);
             }
-                AnnualStraightLineDepreciation = 0;
+            else
+            {
+                AnnualStraightLineDepreciation = 5; //test, doesn't work
+            }
         }
 
         //ToString that returns a formatted string

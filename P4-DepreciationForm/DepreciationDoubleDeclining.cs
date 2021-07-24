@@ -19,6 +19,8 @@ namespace P4_DepreciationForm
             decimal numYearsLifeTimeDecimal = Convert.ToDecimal(NumYearsLifetime);
             int count = 0;
 
+            for (i = 0; )
+
             while (count < NumYearsLifetime)
             {
                 count = count + 1;
@@ -28,7 +30,7 @@ namespace P4_DepreciationForm
         }
 
         //Read-only auto-property - decimal for the total depreciation value
-        public decimal EndValue { get; private set; }
+        public override decimal AnnualStraightLineDepreciation { get; set; }
 
         //ToString that returns a nicely formatted string, but add the fact that this item uses double declining depreciation.
         public override string ToString()
