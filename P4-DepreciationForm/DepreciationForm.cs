@@ -83,7 +83,7 @@ namespace P4_DepreciationForm
             }
         }
 
-        //On calculate button click, totals list of calculations to display below button
+        //On calculate button click, totals list of calculations to display below button.
         private void buttonCalculate_Click(object sender, EventArgs e)
         {
             //Total of all depreciation calculations
